@@ -1,0 +1,11 @@
+This is a test file for FileToImage.
+It contains some sample text used to verify encoding a file into an image and decoding it back.
+
+test1234
+The quick brown fox jumps over the lazy dog.
+Zażółć gęślą jaźń.
+0123456789 !@#$%^&*()_+-=[]{};':",./<>?
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
