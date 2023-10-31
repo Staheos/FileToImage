@@ -67,12 +67,14 @@ namespace FileToImage
             Console.WriteLine($"Prefix: {prefix.Length}");
             Console.WriteLine($"Bytes: {bytes.Length}");
 
-            width = (int)Math.Ceiling(Math.Sqrt(prefix.Length + bytes.Length));
+            // every pixel stores 4 bytes
+            //width = (int)Math.Ceiling(Math.Sqrt(prefix.Length + bytes.Length));
+            width = (int)Math.Ceiling(Math.Sqrt((prefix.Length + bytes.Length) / 4));
             height = width;
             Console.WriteLine($"Width: {width} Height: {height}");
 
             //byte[] toWrite = new byte[prefix.Length + bytes.Length];
-            byte[] toWrite = new byte[width * height];
+            byte[] toWrite = new byte[width * 4 * height * 4];
             prefix.CopyTo(toWrite, 0);
             this.bytes.CopyTo(toWrite, prefix.Length);
             for (int i = 0; i < toWrite.Length; i++)
@@ -86,9 +88,12 @@ namespace FileToImage
             {
                 for (int j = 0; j < width; j++)
                 {
-                    Console.WriteLine($"Pixel: {i} {j} {i * width + j} {toWrite[i * width + j]}");
+                    Console.WriteLine($"Pixel: {i} {j} {i * width + j} {toWrite[(i * width + j) * 4]} {toWrite[(i * width + j) * 4 + 1]} {toWrite[(i * width + j) * 4 + 2]} {toWrite[(i * width + j) * 4 + 3]}");
+                    //bmp.SetPixel(j, i,
+                    //    Color.FromArgb(toWrite[i * width + j], toWrite[i * width + j], toWrite[i * width + j])
+                    //    );
                     bmp.SetPixel(j, i,
-                        Color.FromArgb(toWrite[i * width + j], toWrite[i * width + j], toWrite[i * width + j])
+                        Color.FromArgb(toWrite[(i * width + j) * 4], toWrite[(i * width + j) * 4 + 1], toWrite[(i * width + j) * 4 + 2], toWrite[(i * width + j) * 4 + 3])
                         );
                 }
             }   

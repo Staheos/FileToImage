@@ -17,7 +17,7 @@ namespace FileToImage
 
             FileImage check = new FileImage();
             check.ImportFile("test.bmp");
-            fileImage.ExportFile("check.txt");
+            check.ExportFile("check.txt");
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
