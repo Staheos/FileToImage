@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
             Log = new TextBox();
             LoadFile = new Button();
@@ -131,6 +132,7 @@
             Controls.Add(LoadFile);
             Controls.Add(Log);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "File Image";
             Load += Form1_Load;
