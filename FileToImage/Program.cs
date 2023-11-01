@@ -13,10 +13,10 @@ namespace FileToImage
             FileImage fileImage = new FileImage();
 
             fileImage.ImportFile("test.txt");
-            fileImage.ExportImage("test.bmp");
+            fileImage.ExportImage("test.png");
 
             FileImage check = new FileImage();
-            check.ImportFile("test.bmp");
+            check.ImportImage("test.png");
             check.ExportFile("check.txt");
 
             // To customize application configuration such as set high DPI settings or default font,
