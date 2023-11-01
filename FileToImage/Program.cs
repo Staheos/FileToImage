@@ -10,6 +10,15 @@ namespace FileToImage
         [STAThread]
         static void Main()
         {
+            // handle BuildNmber
+            if (File.Exists("..\\..\\..\\BuildNumber.txt"))
+            {
+                int BuildNumber = Convert.ToInt32(File.ReadAllText("..\\..\\..\\BuildNumber.txt"));
+                BuildNumber += 1;
+                Console.WriteLine($"Current BuildNumber is: {BuildNumber}");
+                File.WriteAllText("..\\..\\..\\BuildNumber.txt", Convert.ToString(BuildNumber));
+            }
+
             bool debug = false;
             if (debug)
             {
