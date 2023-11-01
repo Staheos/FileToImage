@@ -10,17 +10,21 @@ namespace FileToImage
         [STAThread]
         static void Main()
         {
-            FileImage fileImage = new FileImage();
+            bool debug = false;
+            if (debug)
+            {
+                FileImage fileImage = new FileImage();
 
-            fileImage.ImportFile("test.txt");
-            fileImage.ExportImage("test.png");
+                fileImage.ImportFile("test.txt");
+                fileImage.ExportImage("test.png");
 
-            FileImage check = new FileImage();
-            check.ImportImage("test.png");
-            check.ExportFile("check.txt");
-
+                FileImage check = new FileImage();
+                check.ImportImage("test.png");
+                check.ExportFile("check.txt");
+            }
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
