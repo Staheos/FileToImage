@@ -10,17 +10,30 @@ namespace FileToImage
         [STAThread]
         static void Main()
         {
-            FileImage fileImage = new FileImage();
+            // handle BuildNmber
+            if (File.Exists("..\\..\\..\\BuildNumber.txt"))
+            {
+                int BuildNumber = Convert.ToInt32(File.ReadAllText("..\\..\\..\\BuildNumber.txt"));
+                BuildNumber += 1;
+                Console.WriteLine($"Current BuildNumber is: {BuildNumber}");
+                File.WriteAllText("..\\..\\..\\BuildNumber.txt", Convert.ToString(BuildNumber));
+            }
 
-            fileImage.ImportFile("test.txt");
-            fileImage.ExportImage("test.png");
+            bool debug = false;
+            if (debug)
+            {
+                FileImage fileImage = new FileImage();
 
-            FileImage check = new FileImage();
-            check.ImportImage("test.png");
-            check.ExportFile("check.txt");
+                fileImage.ImportFile("test.txt");
+                fileImage.ExportImage("test.png");
 
+                FileImage check = new FileImage();
+                check.ImportImage("test.png");
+                check.ExportFile("check.txt");
+            }
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }

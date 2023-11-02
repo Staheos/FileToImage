@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
-            textBox1 = new TextBox();
+            Log = new TextBox();
+            LoadFile = new Button();
+            ExportImage = new Button();
+            SelectLoadImage = new OpenFileDialog();
+            SaveExportFile = new SaveFileDialog();
+            LoadImage = new Button();
+            ExportFile = new Button();
+            SelectLoadFile = new OpenFileDialog();
+            SaveExportImage = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -41,22 +50,92 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // Log
             // 
-            textBox1.Location = new Point(1209, 115);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(607, 31);
-            textBox1.TabIndex = 1;
+            Log.Location = new Point(1153, 115);
+            Log.Multiline = true;
+            Log.Name = "Log";
+            Log.Size = new Size(712, 443);
+            Log.TabIndex = 1;
+            // 
+            // LoadFile
+            // 
+            LoadFile.Location = new Point(55, 817);
+            LoadFile.Name = "LoadFile";
+            LoadFile.Size = new Size(193, 53);
+            LoadFile.TabIndex = 2;
+            LoadFile.Text = "Load File";
+            LoadFile.UseVisualStyleBackColor = true;
+            LoadFile.Click += LoadFile_Click;
+            // 
+            // ExportImage
+            // 
+            ExportImage.Location = new Point(348, 947);
+            ExportImage.Name = "ExportImage";
+            ExportImage.Size = new Size(193, 53);
+            ExportImage.TabIndex = 3;
+            ExportImage.Text = "Export Image\r\n";
+            ExportImage.UseVisualStyleBackColor = true;
+            ExportImage.Click += ExportImage_Click;
+            // 
+            // SelectLoadImage
+            // 
+            SelectLoadImage.FileName = "SelectLoadImage";
+            SelectLoadImage.Title = "Select Load Image";
+            SelectLoadImage.FileOk += SelectLoadImage_FileOk;
+            // 
+            // SaveExportFile
+            // 
+            SaveExportFile.Title = "Save Export File";
+            SaveExportFile.FileOk += SaveExportFile_FileOk;
+            // 
+            // LoadImage
+            // 
+            LoadImage.Location = new Point(55, 947);
+            LoadImage.Name = "LoadImage";
+            LoadImage.Size = new Size(193, 53);
+            LoadImage.TabIndex = 5;
+            LoadImage.Text = "Load Image";
+            LoadImage.UseVisualStyleBackColor = true;
+            LoadImage.Click += LoadImage_Click;
+            // 
+            // ExportFile
+            // 
+            ExportFile.Location = new Point(348, 817);
+            ExportFile.Name = "ExportFile";
+            ExportFile.Size = new Size(193, 53);
+            ExportFile.TabIndex = 6;
+            ExportFile.Text = "Export File";
+            ExportFile.UseVisualStyleBackColor = true;
+            ExportFile.Click += ExportFile_Click;
+            // 
+            // SelectLoadFile
+            // 
+            SelectLoadFile.FileName = "SelectLoadFile";
+            SelectLoadFile.Title = "Select Load File";
+            SelectLoadFile.FileOk += SelectLoadFile_FileOk;
+            // 
+            // SaveExportImage
+            // 
+            SaveExportImage.Title = "Save Export Image";
+            SaveExportImage.FileOk += SaveExportImage_FileOk;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
             ClientSize = new Size(1900, 1076);
-            Controls.Add(textBox1);
+            Controls.Add(ExportFile);
+            Controls.Add(LoadImage);
+            Controls.Add(ExportImage);
+            Controls.Add(LoadFile);
+            Controls.Add(Log);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Form1";
+            Text = "File Image";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -65,6 +144,14 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private TextBox textBox1;
+        private TextBox Log;
+        private Button LoadFile;
+        private Button ExportImage;
+        private OpenFileDialog SelectLoadImage;
+        private SaveFileDialog SaveExportFile;
+        private Button LoadImage;
+        private Button ExportFile;
+        private OpenFileDialog SelectLoadFile;
+        private SaveFileDialog SaveExportImage;
     }
 }
